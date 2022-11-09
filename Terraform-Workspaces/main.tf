@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-mjl92"
+    bucket = "tarroone"
     key    = "ecr-terraform.tfstate"
     region = "us-east-1"
   }
