@@ -7,11 +7,10 @@ jobs:
   issue_parser:
     runs-on: ubuntu-latest
     name: Terraform destroy
-    steps:
 
     steps:
       - name: Checkout2
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
