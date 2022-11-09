@@ -8,13 +8,23 @@ jobs:
     runs-on: ubuntu-latest
     name: Terraform destroy
     steps:
-    - name: Terraform destroy
-      env:
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      uses: aws-actions/terraform-destroy-actions@v3
+          aws-region: us-west-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
       with:
-        working-directory: aws_s3_bucket
+        working-directory: Terraform-Workspaces
         run: |
           terraform init
           terraform workspace new ${{ env.environment }}
