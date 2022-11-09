@@ -14,7 +14,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       uses: aws-actions/terraform-destroy-actions@v3
       with:
-      - name: Terraform destroy
         working-directory: aws_s3_bucket
         run: |
           terraform init
