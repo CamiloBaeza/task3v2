@@ -22,7 +22,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Terraform Workflow
-      working-directory: Terraform-Workspaces
+      #working-directory: Terraform-Workspaces
       run: |
         terraform init
         terraform workspace new ${{ env.environment }}
