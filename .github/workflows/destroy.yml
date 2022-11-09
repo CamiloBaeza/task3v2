@@ -20,9 +20,9 @@ jobs:
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
-      
+
     - name: Terraform Workflow
-      working-directory: aws_s3_bucket
+      working-directory: Terraform-Workspaces
       run: |
         terraform init
         terraform workspace new ${{ env.environment }}
