@@ -7,7 +7,7 @@ terraform {
 }
 
 resource "aws_s3_bucket" "srecoursebuf-s3" {
-  bucket = "tarroloco"
+  bucket = "tarrotomado"
   versioning {
     enabled = true
   }
