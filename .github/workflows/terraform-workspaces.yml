@@ -43,5 +43,3 @@ jobs:
           git add .
 
           git commit -am "GM ACTION Headlines $(date)"
-
-          git push
