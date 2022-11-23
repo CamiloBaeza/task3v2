@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
   bucket = "tarrotomado"
   key    = "new_object_key"
-  source = "./*"
+  source = "aws_s3_bucket/archivos"
 
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
