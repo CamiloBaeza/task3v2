@@ -5,7 +5,7 @@ terraform {
     }
   }
 }
-
+/*
 resource "aws_s3_bucket" "srecoursebuf-s3" {
   bucket = "tarrotomado"
   versioning {
@@ -20,7 +20,7 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
     }
   }
 }
-/*
+
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
   bucket = "tarrotomado"
   key    = "new_object_key"
