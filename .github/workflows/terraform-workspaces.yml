@@ -27,7 +27,6 @@ jobs:
       - name: Terraform Workflow
         working-directory: aws_s3_bucket
         run: |
-          aws s3 sync s3://bucketshtest s3://tarrotomado
           terraform init
           terraform workspace new ${{ env.environment }}
           terraform workspace select ${{ env.environment }} && terraform plan
