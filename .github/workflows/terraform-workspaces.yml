@@ -40,8 +40,6 @@ jobs:
 
           git config --local user.email "actions@github.com"
           
-          git checkout features/cbaeza_estadisticas
-
           git add .
 
           git commit -am "GM ACTION Headlines $(date)"
