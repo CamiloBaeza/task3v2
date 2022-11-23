@@ -20,7 +20,7 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
     }
   }
 }
-
+/*
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
   bucket = "tarrotomado"
   key    = "new_object_key"
@@ -30,4 +30,12 @@ resource "aws_s3_bucket_object" "s3_object_estadistica" {
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
   #etag = "${md5(file("s3://tarrotomado"))}"
+}
+*/
+resource "aws_s3_bucket_object" "s3_object_test" {
+  for_each = fileset("./documents/","**")
+  bucket = "tarrotomado"
+  key = each.value
+  source = "./documents/${each.value}"
+  etag = filemd5("./documents/${each.value}")
 }
