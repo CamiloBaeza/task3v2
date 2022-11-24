@@ -5,7 +5,7 @@ terraform {
       version = ">=4.20.0"
     }
     archive = {
-      source  = "hashicorp/archive"
+      source  = "hashicorp/random"
       version = "2.2.0"
     }
   }
