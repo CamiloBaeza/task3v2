@@ -58,7 +58,7 @@ resource "aws_s3_bucket_object" "s3_object_test" {
   bucket = "tarrotomado"
   
   # el nombre del objeto en este ejemplo es el mismo que en la ruta
-  key = each.value
+  key = "documents/${each.value}"
 
   #La ruta al archivo que se va  acargar
   source = "./documents/${each.value}"
