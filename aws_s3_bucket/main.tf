@@ -12,11 +12,11 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
     Name        = "My bucket"
     Environment = "Dev"
   }
-
+/*
   versioning {
     enabled = true
   }
-
+*/
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
