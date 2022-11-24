@@ -1,10 +1,10 @@
 name: Terraform Workspaces
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ # push:
+ #   branches: [ "main" ]
+ # pull_request:
+ #   branches: [ "main" ]
   
   workflow_dispatch:
 jobs:
@@ -49,19 +49,8 @@ jobs:
 
       - name: Terraform Plan
         run:  terraform plan
-        
+
       - name: Terraform Apply
         run: terraform apply -auto-approve
-
-      - id:  commit
-        name: Commit files
-        run:
-          git config --local user.name actions-user
-
-          git config --local user.email "actions@github.com"
-          
-          git add .
-
-          git commit -am "GM ACTION Headlines $(date)"
 
           
