@@ -55,7 +55,7 @@ resource "aws_s3_bucket_object" "s3_object_test" {
   for_each = fileset("./documents/","**")
 
   # el nombre del s3
-  bucket = aws_s3_bucket.srecoursebuf-s3.id
+  bucket = "tarrotomado"
   
   # el nombre del objeto en este ejemplo es el mismo que en la ruta
   key = each.value
