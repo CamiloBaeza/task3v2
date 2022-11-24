@@ -33,18 +33,6 @@ jobs:
         working-directory: aws_s3_bucket
       - name: Initialize the Terraform
         run: terraform init
-      - name: Select Workspace
-        run: |
-          terraform workspace list
-          terraform workspace select ${{ secrets.ENV }} || terraform workspace new ${{ secrets.ENV }}
-      - name: Terraform Validate
-        run: |
-          terraform state pull
-          terraform fmt
-          terraform validate
-      - name: Terraform Plan
-        run:  terraform plan
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
+
 
           
