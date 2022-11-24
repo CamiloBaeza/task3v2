@@ -5,9 +5,14 @@ terraform {
     }
   }
 }
-/*
+
 resource "aws_s3_bucket" "srecoursebuf-s3" {
   bucket = "tarrotomado"
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+
   versioning {
     enabled = true
   }
@@ -21,6 +26,11 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
   }
 }
 
+resource "aws_s3_bucket_acl" "example" {
+  bucket = aws_s3_bucket.srecoursebuf-s3.id
+  acl    = "private"
+}
+/*
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
   bucket = "tarrotomado"
   key    = "new_object_key"
