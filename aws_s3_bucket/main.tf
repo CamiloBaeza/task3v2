@@ -5,7 +5,7 @@ terraform {
     }
   }
 }
-/*
+
 resource "aws_s3_bucket" "srecoursebuf-s3" {
   bucket = "tarrotomado"
   versioning {
@@ -35,7 +35,6 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
   }
 }
 
-*/
 
 /*
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
@@ -56,7 +55,7 @@ resource "aws_s3_bucket_object" "s3_object_test" {
   for_each = fileset("./documents/","**")
 
   # el nombre del s3
-  bucket = "tarrotomado"
+  bucket = aws_s3_bucket.srecoursebuf-s3.id
   
   # el nombre del objeto en este ejemplo es el mismo que en la ruta
   key = each.value
