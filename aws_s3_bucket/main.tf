@@ -8,12 +8,6 @@ terraform {
 
 resource "aws_s3_bucket" "srecoursebuf-s3" {
   bucket = "tarrotomado"
-  /*
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
-  */
   versioning {
     enabled = true
   }
