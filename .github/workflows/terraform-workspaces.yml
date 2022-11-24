@@ -31,11 +31,22 @@ jobs:
           terraform_version: 1.1.4
       - name: Terraform Workflow
         working-directory: aws_s3_bucket
+      - name: Initialize the Terraform
         run: |
           terraform init
-          terraform workspace new ${{ env.environment }}
-          terraform workspace select ${{ env.environment }} && terraform plan
-          terraform workspace select ${{ env.environment }} && terraform apply -auto-approve
+      - name: Select Workspace
+        run: |
+          terraform workspace list
+          terraform workspace select ${{ secrets.ENV }} || terraform workspace new ${{ secrets.ENV }}
+      - name: Terraform Validate
+        run: |
+          terraform state pull
+          terraform fmt
+          terraform validate
+      - name: Terraform Plan
+        run:  terraform plan
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
 
       - id:  commit
         name: Commit files
@@ -47,3 +58,5 @@ jobs:
           git add .
 
           git commit -am "GM ACTION Headlines $(date)"
+
+          
