@@ -25,12 +25,12 @@ resource "aws_s3_bucket" "srecoursebuf-s3" {
     }
   }
 }
-
+/*
 resource "aws_s3_bucket_acl" "example" {
   bucket = aws_s3_bucket.srecoursebuf-s3.id
   acl    = "private"
 }
-/*
+
 resource "aws_s3_bucket_object" "s3_object_estadistica" {
   bucket = "tarrotomado"
   key    = "new_object_key"
@@ -41,11 +41,11 @@ resource "aws_s3_bucket_object" "s3_object_estadistica" {
   # etag = "${md5(file("path/to/file"))}"
   #etag = "${md5(file("s3://tarrotomado"))}"
 }
-*/
+
 resource "aws_s3_bucket_object" "s3_object_test" {
-  /*Primero se recorre la carpeta documents con un for_each para identificar todos los ducmentos
+  Primero se recorre la carpeta documents con un for_each para identificar todos los ducmentos
   que se pasaran al s3, funcion fileset requiere dos parametros (la ruta , el patron en este caso "**")
-   https://developer.hashicorp.com/terraform/language/functions/fileset */
+   https://developer.hashicorp.com/terraform/language/functions/fileset 
   for_each = fileset("./documents/","**")
 
   # el nombre del s3
@@ -60,3 +60,5 @@ resource "aws_s3_bucket_object" "s3_object_test" {
   #Se activa una actualizacion solo si el archivo se cambia, el etag de cada objeto es un hash MD5 de ese objeto
   etag = filemd5("./documents/${each.value}")
 }
+*/
+
